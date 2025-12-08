@@ -1,0 +1,163 @@
+https://www.searchapi.io/api/v1/search?api_key=dqEier7vcs4Kn5BuCzcRGDep&engine=youtube&q=Fortnite
+const axios = require('axios');
+
+const url = "https://www.searchapi.io/api/v1/search";
+const params = {
+  "engine": "youtube",
+  "q": "Fortnite",
+  "api_key": "dqEier7vcs4Kn5BuCzcRGDep"
+};
+
+axios.get(url, { params })
+  .then(response => {
+    console.log(response.data);
+  })
+  .catch(error => {
+    console.error('Error:', error);
+  });
+{
+  "search_metadata": {
+    "id": "search_kQzy2PnvoBkZC7A83Yx0EK15",
+    "status": "Success",
+    "created_at": "2023-05-09T08:47:55Z",
+    "processed_at": "2023-05-09T08:47:55Z",
+    "request_time_taken": 1.97,
+    "parsing_time_taken": 0.05,
+    "total_time_taken": 2.01,
+    "request_url": "https://www.youtube.com/results?search_query=Fortnite",
+    "html_url": "https://www.searchapi.io/api/v1/searches/search_kQzy2PnvoBkZC7A83Yx0EK15.html",
+    "json_url": "https://www.searchapi.io/api/v1/searches/search_kQzy2PnvoBkZC7A83Yx0EK15"
+  },
+  "search_parameters": {
+    "engine": "youtube",
+    "q": "Fortnite"
+  },
+  "search_information":{
+    "total_results": 251993762
+  },
+  "ads": [
+    {
+      "position": 1,
+      "id": "u3jp4wsPQXM",
+      "title": "Best Zombie Mobile Game is on PC now.",
+      "link": "https://www.youtube.com/watch?v=u3jp4wsPQXM",
+      "description": "How long can you last in this zombie world?",
+      "website": "https://www.googleadservices.com/pagead/aclk?...",
+      "channel": {
+        "id": "UCSqc6ppsKEfSe_ivghzfozA",
+        "title": "SOS",
+        "link": "https://www.youtube.com/channel/UCSqc6ppsKEfSe_ivghzfozA"
+      },
+      "length": "0:30",
+      "extensions": ["Ad"],
+      "thumbnail": "https://i2.ytimg.com/vi/u3jp4wsPQXM/0.jpg"
+    }
+  ],
+  "videos": [
+    {
+      "position": 2,
+      "id": "H4p6WAjiq60",
+      "title": "The *FORCE* ONLY Challenge in Fortnite!",
+      "link": "https://www.youtube.com/watch?v=H4p6WAjiq60",
+      "description": "Fortnite Star Wars FORCE ONLY Chapter 4, Season 2 gameplay with Typical Gamer! SUBSCRIBE & CLICK THE BELL! Merch: ...",
+      "views": "65,220 views",
+      "extracted_views": 65220,
+      "live": false,
+      "channel": {
+        "id": "UCqVCSWnuOSPm26orvNDTuWQ",
+        "title": "TG Plays",
+        "link": "https://www.youtube.com/@TGplays",
+        "verified": "Verified",
+        "thumbnail": "https://yt3.ggpht.com/ytc/AGIKgqNylx0sO2pv22NDr2m5bOiGSsuaDBfw8l_gJFmdjg=s68-c-k-c0x00ffffff-no-rj"
+      },
+      "length": "20:08",
+      "published_time": "4 hours ago",
+      "extensions": ["New"],
+      "thumbnail": {
+        "static": "https://i.ytimg.com/vi/H4p6WAjiq60/hq720.jpg?sqp=-oaymwEcCOgCEMoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBhFqjSpc_swUk7evNZW2duyibpRw",
+        "rich": "https://i.ytimg.com/vi/H4p6WAjiq60/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDsW8XfTdvm6H7_PZ2K78xzbz4d9g"
+      }
+    },
+    ...
+  ],
+  "sections": [
+    {
+      "section_title": "Popular today",
+      "position": 8,
+      "items": [
+        {
+          "position": 1,
+          "id": "D4zFFCv40gw",
+          "title": "Fortnite Kids think Fortnite created Everything",
+          "link": "https://www.youtube.com/watch?v=D4zFFCv40gw",
+          "description": "Use Creator Code HEW #hewmoran #comedy #gaming click these links for cool things • Discord - https://discord.gg/hewmoran ...",
+          "views": "11,000,253 views",
+          "extracted_views": 11000253,
+          "live": false,
+          "channel": {
+            "id": "UC59Ied2j88dZUw7PzJa2-YA",
+            "title": "Hew Moran",
+            "link": "https://www.youtube.com/@HewMoran",
+            "verified": "Verified",
+            "thumbnail": "https://yt3.ggpht.com/_W4q2lYQtRI-ioPsRD9VnChQBSv1WRiN5zFSnSJh2qAM3NUFOP-Od4_2fTPfaDbxzFWnYxJ0FWI=s68-c-k-c0x00ffffff-no-rj"
+          },
+          "length": "0:24",
+          "published_time": "6 days ago",
+          "extensions": ["New", "4K"],
+          "thumbnail": {
+            "static": "https://i.ytimg.com/vi/D4zFFCv40gw/hq720_2.jpg?sqp=-oaymwE2COgCEMoBSFXyq4qpAygIARUAAIhCGABwAcABBvABAfgBtgiAAoAPigIMCAAQARhcIFcoZTAP&rs=AOn4CLBcWNXYucSAZAZN95tLM_Z2T5Nz9g",
+            "rich": "https://i.ytimg.com/vi/D4zFFCv40gw/hq720_2.jpg?sqp=-oaymwE2CNAFEJQDSFXyq4qpAygIARUAAIhCGABwAcABBvABAfgBtgiAAoAPigIMCAAQARhcIFcoZTAP&rs=AOn4CLA7ZVJU6BUrNY3W33LPrWdzn5udxA"
+          }
+        }
+      ]
+    },
+    {
+      "section_name": "Shorts",
+      "position": 11,
+      "items": [
+        {
+          "position": 1,
+          "id": "ES4bcJuMKng",
+          "title": "SUS EMOTES IN FORTNITE 😳",
+          "link": "https://www.youtube.com/shorts/ES4bcJuMKng",
+          "duration": " 56 seconds ",
+          "views": "8.8M views",
+          "thumbnail": "https://i.ytimg.com/vi/ES4bcJuMKng/oar2.jpg?sqp=-oaymwEaCJUDENAFSFXyq4qpAwwIARUAAIhCcAHAAQY=&rs=AOn4CLBGLoDCjJTJox_6Pi9kLQL33JDM0A"
+        },
+        ...
+      ]
+    },
+    ...
+  ],
+  "company": {
+    "id": "UCXzGWycANrrfyBmzX6JMsvQ",
+    "title": "Fortnite",
+    "subtitle": "Video game • Released: 2017",
+    "link": "https://www.youtube.com/channel/UCXzGWycANrrfyBmzX6JMsvQ",
+    "highligted_video": {
+      "id": "U82Olpfh45A",
+      "title": "Find the Force - the Ultimate Star Wars Experience in Fortnite",
+      "subtitle": "Epic Games • 7K views • 22 hours ago",
+      "link": "https://www.youtube.com/watch?v=U82Olpfh45A",
+      "length": "0:34"
+    },
+    "videos": [
+      {
+        "id": "LH0K7NkhcfM",
+        "title": "Fortnite Champion Series 2023 | Major 2 | Surge Week | N. America",
+        "link": "https://www.youtube.com/watch?v=LH0K7NkhcfM&pp=ygUIRm9ydG5pdGU%3D",
+        "length": "3:22:45",
+        "channel": {
+          "id": "UClG8odDC8TS6Zpqk9CGVQiQ",
+          "title": "Fortnite",
+          "link": "https://www.youtube.com/@fortnite"
+        },
+        "thumbnail": "https://i.ytimg.com/vi/LH0K7NkhcfM/hq720.jpg?sqp=-oaymwEcCOgCEMoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDD7O1y5wbGf6SWaLxBxO_D2dkbgQ"
+      },
+      ...
+    ]
+  },
+  "pagination": {
+    "next_page_token": "SBSCAQstMk9wWVg3RGoyZ4IBC2pNU3BCUnBzdW44ggELR0FfT3c3dFJnR2OCAQtJOTVTazBQcHJ2UYIBC2FHMk1oN0FwaEZzggELaFVULXgxM3hlQnOCAQtXeE0zMHNvdWNRb4IBC290bmxVYXVoNVE0ggELOHNFZm9KXzQtWEmCAQthR0QwZlFGVTh1QYIBCzNnOVlucWJVY3BjggELTkl3Rmt4QllVQ0mCAQt5bVZnU0lxb2dNa4IBC25EcHc1U1hJMmNnggELOE5DdndvQVFJLUGCAQtSQmFCYjM0Mlh5OIIBCzR2OUQtekwydVc0ggELbVE0WllQRUN1MziCAQt3Z1FEeTZhZGd1RYIBC01OcW9SUE1YNElBsgEGCgQIHBAC6gECCAI%3D"
+  }
+}
