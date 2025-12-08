@@ -19,6 +19,7 @@ const FindVideo = () => {
   const [text, setText] = useState<string>("");
   const [select, setSelect] = useState<string>("");
   const [data, setData] = useState<VideoItem[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isMobile, setIsMobile] = useState<boolean>(false);
   const [showVideoList, setShowVideoList] = useState<boolean>(true);
 
@@ -35,21 +36,29 @@ const FindVideo = () => {
   }, []);
 
   async function getTitle() {
-    const res = await findTitle(text);
-    console.log(res.videos);
-    setData(res.videos || []);
-    setShowVideoList(true); // هنگام جستجوی جدید لیست را نمایش بده
+    if (!text.trim()) return;
+    setIsLoading(true);
+    try {
+      const res = await findTitle(text);
+      console.log(res.videos);
+      setData(res.videos || []);
+      setShowVideoList(true);
+    } catch (err) {
+      console.error("Error fetching videos:", err);
+      setData([]);
+    } finally {
+      setIsLoading(false);
+    }
   }
 
-  // هنگام انتخاب ویدیو
   const handleSelectVideo = (id: string) => {
     setSelect(id);
     if (isMobile) {
-      setShowVideoList(false); // در موبایل و تبلت لیست را مخفی کن
+      setShowVideoList(false);
     }
   };
 
-  // دکمه برگشت به لیست (فقط در موبایل/تبلت)
+
   const handleBackToList = () => {
     setShowVideoList(true);
   };
@@ -60,19 +69,46 @@ const FindVideo = () => {
         <div className="flex justify-around w-full mt-10">
           <input
             type="text"
+            value={text}
             onChange={(e) => setText(e.target.value)}
             placeholder="Find Your Video , For Example : Python Tutorial"
+            disabled={isLoading}
             className="bg-white w-full lg:text-xl max-md:text-md max-sm:text-sm px-10 py-5 border-[#660B05] border-b-4 outline-0"
           />
           <button
             onClick={getTitle}
-            className="px-10 py-2 cursor-pointer transition-all bg-[#CF0F0F] text-zinc-300 hover:bg-zinc-300 hover:text-[#CF0F0F]"
+            disabled={isLoading}
+            className={`px-10 py-2 transition-all bg-[#CF0F0F] text-zinc-300 hover:bg-zinc-300 hover:text-[#CF0F0F] ${isLoading ? 'opacity-60 cursor-not-allowed' : 'cursor-pointer'}`}
           >
-            <IoSearchCircle className="text-5xl" />
+            {isLoading ? (
+              <div className="flex items-center gap-2">
+                <svg
+                  className="animate-spin h-6 w-6 text-white"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <circle
+                    className="opacity-25"
+                    cx="12"
+                    cy="12"
+                    r="10"
+                    stroke="currentColor"
+                    strokeWidth="4"
+                  ></circle>
+                  <path
+                    className="opacity-75"
+                    fill="currentColor"
+                    d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+                  ></path>
+                </svg>
+                <span className="text-white">Loading...</span>
+              </div>
+            ) : (
+              <IoSearchCircle className="text-5xl" />
+            )}
           </button>
         </div>
-
-        {/* دکمه برگشت به لیست (فقط در موبایل/تبلت) */}
         {isMobile && !showVideoList && (
           <button
             onClick={handleBackToList}
@@ -85,11 +121,24 @@ const FindVideo = () => {
         <Video select={select} />
       </div>
 
-      {/* لیست ویدیوها */}
-      {data.length === 0 ? (
+      {isLoading ? (
+        <div className={`bg-red-950 mt-10 w-[40%] h-40 rounded-sm mr-5 max-md:hidden max-sm:hidden lg:block`}>
+          <div className="flex flex-col items-center justify-center py-10">
+            <svg
+              className="animate-spin h-12 w-12 text-white"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path>
+            </svg>
+            <h1 className="text-center text-2xl mt-4 text-white">Loading videos...</h1>
+          </div>
+        </div>
+      ) : data.length === 0 ? (
         <div
-          className={`bg-red-950 mt-10 w-[40%] h-18 rounded-sm mr-5 
-          max-md:hidden max-sm:hidden lg:block`}
+          className="bg-red-950 mt-10 w-[40%] h-18 rounded-sm mr-5 hidden lg:block"
         >
           <h1 className="text-center text-2xl mt-5 text-white">No Videos</h1>
         </div>
