@@ -81,7 +81,7 @@ const FindVideo = () => {
             className={`px-10 py-2 transition-all bg-[#CF0F0F] text-zinc-300 hover:bg-zinc-300 hover:text-[#CF0F0F] ${isLoading ? 'opacity-60 cursor-not-allowed' : 'cursor-pointer'}`}
           >
             {isLoading ? (
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 max-md:block max-sm:block lg:hidden">
                 <svg
                   className="animate-spin h-6 w-6 text-white"
                   xmlns="http://www.w3.org/2000/svg"
