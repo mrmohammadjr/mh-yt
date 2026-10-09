@@ -35,7 +35,7 @@ const Footer = () => {
         <BsLink45Deg />
         <Link
           className="lg:text-xl max-md:text-md max-sm:text-sm"
-          href={"https://mrmohammadjr.github.io/portfolio-app/"}
+          href={"https://mr-mohammad.javadrma-2017.workers.dev/"}
         >
           Author
         </Link>
